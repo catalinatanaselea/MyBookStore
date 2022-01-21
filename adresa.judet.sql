@@ -1,7 +1,7 @@
 drop table if exists adresa.judet;
 go
 create table adresa.judet
-	(id_judet tinyint identity(1,1) primary key not null,
+	(id tinyint identity(1,1) primary key not null,
 	 judet varchar(35) not null);
 go
 insert into adresa.judet(judet) 
