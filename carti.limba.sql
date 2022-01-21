@@ -3,7 +3,7 @@ go
 drop table if exists carti.limba;
 go
 create table carti.limba
-		(id_limba tinyint identity(1,1) primary key not null,
+		(id tinyint identity(1,1) primary key not null,
 		limba varchar(10) not null);
 go
 insert into carti.limba (limba)
@@ -13,4 +13,4 @@ insert into carti.limba (limba)
 				('Spaniola'),
 				('Germana'),
 				('Maghiara'),
-				('Ítaliana');
+				('Ãtaliana');
