@@ -3,8 +3,8 @@ go
 drop table if exists carti.subcategorii;
 go
 create table carti.subcategorii(
-		id_subcateg tinyint identity(1,1) primary key not null, 
-		id_categ smallint foreign key references carti.categorii(id_categ) not null,
+		id tinyint identity(1,1) primary key not null, 
+		id_categ smallint foreign key references carti.categorii(id) not null,
 		nume_subcateg varchar(50) not null)
 go
 insert into carti.subcategorii(id_categ, nume_subcateg)
