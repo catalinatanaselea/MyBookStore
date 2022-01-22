@@ -3,7 +3,7 @@ go
 drop table if exists carti.categorii;
 go
 create table carti.categorii(
-		id smallint identity(1,1) primary key not null,
+		id_categ smallint identity(1,1) primary key not null,
 		nume_categ varchar(50) not null);
 go
 insert into carti.categorii(nume_categ) 
