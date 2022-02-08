@@ -1,18 +1,55 @@
-use PersonalDB;
-go
-drop table if exists carti.carti;
-go
-create table carti.carti
-		(id smallint identity(1,1) primary key not null, 
-		 id_categ smallint foreign key references carti.categorii(id) not null, 
-		 id_subcateg tinyint foreign key references carti.subcategorii(id) null,
-		 nume_carte varchar(50) not null,
-		 id_autor smallint foreign key references carti.autor(id) not null,
-		 id_editura smallint foreign key references carti.editura(id) not null,
-		 an char(4) not null,
-		 pret decimal(5, 2) not null,
-		 id_dispo tinyint foreign key references carti.disponibilitate(id) not null,
-		 id_limba tinyint foreign key references carti.limba(id) not null,
-		 id_coperta tinyint foreign key references carti.coperta(id) not null,
-		 nrpagini smallint null,
-		 ISBN char(13) not null);
+USE [PersonalDB]
+GO
+
+/****** Object:  Table [carti].[carti]    Script Date: 08/02/2022 20:13:27 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [carti].[carti](
+	[id] [smallint] NOT NULL,
+	[id_categ] [smallint] NOT NULL,
+	[id_subcateg] [smallint] NULL,
+	[titlu_carte] [varchar](80) NOT NULL,
+	[id_editura] [smallint] NULL,
+	[an] [char](4) NULL,
+	[pret] [decimal](5, 2) NULL,
+	[id_dispo] [tinyint] NULL,
+	[id_limba] [tinyint] NULL,
+	[id_coperta] [tinyint] NULL,
+	[nrpagini] [float] NULL,
+	[ISBN] [char](13) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [carti].[carti]  WITH CHECK ADD FOREIGN KEY([id_categ])
+REFERENCES [carti].[categorii] ([id])
+GO
+
+ALTER TABLE [carti].[carti]  WITH CHECK ADD FOREIGN KEY([id_coperta])
+REFERENCES [carti].[coperta] ([id])
+GO
+
+ALTER TABLE [carti].[carti]  WITH CHECK ADD FOREIGN KEY([id_dispo])
+REFERENCES [carti].[disponibilitate] ([id])
+GO
+
+ALTER TABLE [carti].[carti]  WITH CHECK ADD FOREIGN KEY([id_editura])
+REFERENCES [carti].[editura] ([id])
+GO
+
+ALTER TABLE [carti].[carti]  WITH CHECK ADD FOREIGN KEY([id_limba])
+REFERENCES [carti].[limba] ([id])
+GO
+
+ALTER TABLE [carti].[carti]  WITH CHECK ADD FOREIGN KEY([id_subcateg])
+REFERENCES [carti].[subcategorii] ([id])
+GO
+
+
