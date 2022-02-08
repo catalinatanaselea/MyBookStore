@@ -1,7 +1,7 @@
 USE [PersonalDB]
 GO
 
-/****** Object:  Table [comanda].[comanda]    Script Date: 22/01/2022 18:24:35 ******/
+/****** Object:  Table [comanda].[comanda]    Script Date: 08/02/2022 20:18:31 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -10,11 +10,10 @@ GO
 
 CREATE TABLE [comanda].[comanda](
 	[id] [smallint] NOT NULL,
-	[data_comanda] [date] NULL,
+	[data_comanda] [date] NOT NULL,
 	[id_carte] [smallint] NOT NULL,
 	[cant_carti] [tinyint] NOT NULL,
-	[pret_intreg] [decimal](5, 2) NOT NULL,
-	[pret_redus] [decimal](5, 2) NULL,
+	[pret] [decimal](5, 2) NOT NULL,
 	[id_adresa] [tinyint] NOT NULL,
 	[id_livrare] [tinyint] NOT NULL,
 	[id_plata] [tinyint] NOT NULL,
@@ -40,4 +39,5 @@ GO
 ALTER TABLE [comanda].[comanda]  WITH CHECK ADD FOREIGN KEY([id_plata])
 REFERENCES [comanda].[plata] ([id])
 GO
+
 
