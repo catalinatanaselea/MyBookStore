@@ -12,7 +12,7 @@ order by pret desc
 
 execute usp_AvgOrderPrice
 
---procedura stocata pentru a afla nr de comanzi ale clientilor
+--procedura stocata pentru a afla nr de comenzi ale clientilor
 create procedure usp_NoCustOrders
 	(@a smallint)
 as
@@ -50,7 +50,7 @@ order by NumarComandat desc
 
 execute usp_BooksTimesOrdered
 
---procedura stocata pentru a afla cei mai vanduti autori
+--procedura stocata pentru a afla cei mai comandati autori
 create procedure usp_BestSellingAuthors
 as
 select ca.prenume_autor, ca.nume_autor, count(*) as NumarComenzi
