@@ -8,9 +8,8 @@ begin
 	from comanda.comanda c
 	join carti.carti cc
 		on cc.id = c.id_carte
-	where c.pret <
-				(select avg(pret)
-				from carti.carti)
+	where c.pret < (select avg(pret)
+			from carti.carti)
 	order by pret desc
 end
 
